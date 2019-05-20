@@ -1,0 +1,19 @@
+{
+  "name": "s-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DISABLE_PARCEL_TSLINT_PLUGIN=true parcel ./src/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "tslint": "^5.16.0",
+    "tslint-config-alloy": "^0.2.1",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {}
+}
