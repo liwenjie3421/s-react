@@ -1,17 +1,31 @@
-interface Vnode {
-    tag: string,
-    props,
-    children: any []
-}
-import sReact, { renderDOM } from './lib/sReact'
+import sReact, { renderDOM, Component } from './lib/sReact'
 
 // setInterval(() => {
+
+    class Say extends Component {
+        public state: {
+            word: string
+        }
+        public constructor(props) {
+            super(props)
+            this.state = {
+                word: 'hello world'
+            }
+        }
+
+        public render() {
+            const {word} = this.state
+            return <div>{word}</div>
+        }
+    }
+
     renderDOM(
         <div className="abc" style={{
             color: 'red',
             width: 300,
             border: '1px solid #ccc'
         }}>
+        <Say />
             <input
                 onInput={(v) => console.log(`input value is: ${v.target.value}`, v)}
                 type="text"
