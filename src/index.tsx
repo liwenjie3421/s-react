@@ -4,7 +4,7 @@ import { renderDOM, Component, createElement } from './lib/sReact'
 
     class Say extends Component {
         public state: {
-            word: string
+            word: string;
         }
         public constructor(props) {
             super(props)

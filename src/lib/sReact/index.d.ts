@@ -11,9 +11,9 @@ export interface ComponentVnode {
 }
 
 export interface Component {
-    props
-    <T>(state:T)
     base: HTMLElement
+    props
+    <T>(state: T)
     setState({}): void
     render(): Vnode
 }
