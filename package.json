@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint --project . ./src/**/*.{ts,tsx} --fix",
     "dev": "DISABLE_PARCEL_TSLINT_PLUGIN=true parcel ./src/index.html"
   },
   "author": "",
