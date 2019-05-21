@@ -8,12 +8,10 @@ export const renderDOM = (vnode: Vnode, container: HTMLElement) => {
 
 export { default as Component } from './component'
 
-export default {
-    createElement(tag, props, ...children): Vnode {
-        return {
-            tag,
-            props,
-            children
-        }
+export const createElement = (tag, props, ...children): Vnode => {
+    return {
+        tag,
+        props,
+        children
     }
 }

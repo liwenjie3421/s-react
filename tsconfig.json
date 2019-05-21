@@ -12,6 +12,6 @@
       "experimentalDecorators": true,
       "sourceMap": true,
       "jsx": "react",
-      "jsxFactory": "sReact.createElement"
+      "jsxFactory": "createElement"
    }
 }

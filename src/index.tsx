@@ -1,4 +1,4 @@
-import sReact, { renderDOM, Component } from './lib/sReact'
+import { renderDOM, Component, createElement } from './lib/sReact'
 
 // setInterval(() => {
 
