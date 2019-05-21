@@ -4,6 +4,7 @@ import { renderComponent } from './render'
 class Component implements ComponentInterface{
     public props
     public state
+    public base: HTMLElement
 
     public constructor(props) {
         this.props = props
