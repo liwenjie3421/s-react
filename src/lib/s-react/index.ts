@@ -1,17 +1,5 @@
-import { Vnode } from './index.d'
-import renderElement from './render'
+export { renderDOM } from './dom/'
 
-export const renderDOM = (vnode: Vnode, container: HTMLElement) => {
-    container.innerHTML = ''
-    return renderElement(vnode, container)
-}
+export { default as createElement } from './jsxFactory'
 
-export { default as Component } from './component'
-
-export const createElement = (tag, props, ...children): Vnode => {
-    return {
-        tag,
-        props,
-        children
-    }
-}
+export { Component } from './component/'

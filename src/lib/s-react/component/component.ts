@@ -1,5 +1,5 @@
-import { Component as ComponentInterface, Vnode } from './index.d'
-import { renderComponent } from './render'
+import { Component as ComponentInterface, Vnode } from '../index.d'
+import { renderComponent } from './render-component'
 
 class Component implements ComponentInterface{
     public props
