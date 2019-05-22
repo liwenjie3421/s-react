@@ -1,7 +1,7 @@
 import { Component, Vnode } from '../index.d'
 
 import { _render } from '../render'
-import setComponentProps from './setProps'
+
 
 export function renderComponent(component: Component) {
     const vnode = component.render()
@@ -15,4 +15,8 @@ export function createComponent(vnode: Vnode): HTMLElement {
     setComponentProps(component, vnode)
     renderComponent(component)
     return component.base
+}
+
+function setComponentProps(component: Component, vnode: Vnode) {
+    component.props = vnode.props
 }
