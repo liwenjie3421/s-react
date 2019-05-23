@@ -1,4 +1,4 @@
-import { Component, Vnode } from '../index.d'
+import { Component, Vnode, ComponentVnode } from '../index.d'
 
 import { _render } from '../render'
 
@@ -9,7 +9,7 @@ export function renderComponent(component: Component) {
     component.base = base
 }
 
-export function createComponent(vnode: Vnode): HTMLElement {
+export function createComponent(vnode: ComponentVnode): HTMLElement {
     const {tag, props} = vnode
     const component: Component = new (tag as any)(props)
     setComponentProps(component, vnode)
@@ -17,6 +17,6 @@ export function createComponent(vnode: Vnode): HTMLElement {
     return component.base
 }
 
-function setComponentProps(component: Component, vnode: Vnode) {
+function setComponentProps(component: Component, vnode: ComponentVnode) {
     component.props = vnode.props
 }
