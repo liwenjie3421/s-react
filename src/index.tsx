@@ -11,6 +11,11 @@ import { renderDOM, Component, createElement } from './lib/s-react'
             this.state = {
                 word: 'hello world'
             }
+            setTimeout(() => {
+                this.setState({
+                    word: 12345
+                })
+            }, 1000)
         }
 
         public render() {
