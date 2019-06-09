@@ -1,34 +1,20 @@
-import { Vnode, Component, ComponentVnode } from './index.d'
+import { Vnode, Component, ComponentVnode } from './interface'
+import { renderElement } from './vNode'
+import { createComponent, setComponentProps } from './component'
 
-export default renderElement
+export default render
 
-
-function renderElement(vnode: ComponentVnode | Vnode | string | number , container: HTMLElement)
-function renderElement(vnode, container: HTMLElement) {
-    return container.appendChild(_render(vnode))
-}
-
-function createComponent(vnode: ComponentVnode) {
-    const { tag, props } = vnode
-    return new (tag as any)(props)
-}
-
-function setComponentProps(component: Component, vnode: Vnode) {
-    component.props = vnode.props
-    renderComponent(component)
-}
-
-function _render(vnode: ComponentVnode)
-function _render(vnode: Vnode | string | number): HTMLElement
-function _render(vnode) {
+function render(vnode: ComponentVnode): HTMLElement
+function render(vnode: Vnode | string | number): HTMLElement
+function render(vnode) {
     let element
     if (typeof vnode === 'number') {
         element = document.createTextNode(String(vnode))
     } else if (typeof vnode === 'string') {
         element = document.createTextNode(vnode)
     } else if (typeof vnode.tag === 'function') { // 组件形式
-        const component = createComponent(vnode)
-        setComponentProps(component, vnode)
+        const component = createComponent(vnode, render)
+        setComponentProps(component, vnode, render)
         return component.base
     } else {
         const { tag, props, children } = vnode
@@ -40,7 +26,7 @@ function _render(vnode) {
                 })
             }
             children.map((childVnode) => {
-                renderElement(childVnode, element)
+                renderElement(childVnode, element, render)
             })
         }
     }
@@ -62,11 +48,4 @@ function setAttribute(element: HTMLElement, name: string, value) {
     } else { // 普通属性
         element[value ? 'setAttribute' : 'removeAttribute'](name, value)
     }
-}
-
-export const renderComponent = (component: Component) => {
-    const vnode = component.render()
-    const base = _render(vnode)
-
-    component.base = base
 }

@@ -1,17 +1,7 @@
-import { Vnode } from './index.d'
-import renderElement from './render'
+import { Vnode } from './interface'
 
-export const renderDOM = (vnode: Vnode, container: HTMLElement) => {
-    container.innerHTML = ''
-    return renderElement(vnode, container)
-}
+export { renderDOM } from './dom'
 
-export { default as Component } from './component'
+export { Component } from './component'
 
-export const createElement = (tag, props, ...children): Vnode => {
-    return {
-        tag,
-        props,
-        children
-    }
-}
+export { createElement } from './vNode'

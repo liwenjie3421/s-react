@@ -4,16 +4,18 @@ export interface Vnode {
     children: any[]
 }
 
+export type tag = new (props) => Component
+
 export interface ComponentVnode {
-    tag: Component,
+    tag: tag,
     props,
     children: any[]
 }
 
 export interface Component {
-    base: HTMLElement
-    props
-    <T>(state: T)
-    setState({}): void
-    render(): Vnode
+    base: HTMLElement,
+    props,
+    state,
+    setState({}): void,
+    render(): Vnode,
 }

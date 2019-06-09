@@ -6,9 +6,10 @@
     },
     "rules": {
         "indent": [true, "spaces", 2],
-        "ordered-imports":false,
+        "ordered-imports": false,
         "no-import-side-effect": false,
         "new-parens": false,
-        "semicolon": [true, "never"]
+        "semicolon": [true, "never"],
+        "unified-signatures": false
     }
 }
